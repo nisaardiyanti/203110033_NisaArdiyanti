@@ -1,5 +1,5 @@
 package com.demo.nisaardiyanti.db
-
+//nama packages
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
-
+//class database
 @Database(entities = [UserEntity::class], version = 2)
 abstract class RoomAppDb: RoomDatabase() {
 
@@ -21,10 +21,11 @@ abstract class RoomAppDb: RoomDatabase() {
             override fun migrate(database: SupportSQLiteDatabase) {
                 database.execSQL("ALTER TABLE userinfo ADD COLUMN phone TEXT DEFAULT ''")
             }
+            //migrat dengan menggunakan alter tabel pada kolom phone
         }
 
         fun getAppDatabase(context: Context): RoomAppDb? {
-
+//mengambil AppDatabse
             if(INSTANCE == null ) {
 
                 INSTANCE = Room.databaseBuilder<RoomAppDb>(
